@@ -5,14 +5,19 @@ from sqlalchemy import create_engine
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    cnx = create_engine('mysql+pymysql://bmgt406_demo03:bmgt406_demo03@bmgt406.rhsmith.umd.edu/bmgt406_demo03_db')    
+    df = pd.read_sql('SELECT * FROM users', cnx) #read the entire table
+
     data = pd.read_sql('SELECT * FROM users', cnx)
     return render_template('index.html', data=data)
     
 @app.route('/listUsers',  methods=['GET','POST'])
 def listUsers():
-    #cursor.execute("SELECT * FROM users")
+    cnx = create_engine('mysql+pymysql://bmgt406_demo03:bmgt406_demo03@bmgt406.rhsmith.umd.edu/bmgt406_demo03_db')    
+    df = pd.read_sql('SELECT * FROM users', cnx) #read the entire table
+   
     data = pd.read_sql('SELECT * FROM users', cnx)
     return render_template('listUsers.html', data=data) 
 
@@ -29,5 +34,5 @@ def get_connection():
     return cursor
 
 #mycursor = get_connection()
-cnx = create_engine('mysql+pymysql://bmgt406_demo03:bmgt406_demo03@bmgt406.rhsmith.umd.edu/bmgt406_demo03_db')    
-df = pd.read_sql('SELECT * FROM users', cnx) #read the entire table
+
+

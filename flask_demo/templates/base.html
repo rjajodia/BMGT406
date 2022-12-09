@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>UMCP Event Signup</title>
 	<link type="text/css" href='css/layout.css' rel="stylesheet">
-	<link rel="shortcut icon" href="images/umd.jpeg" />
+	<link rel="shortcut icon" href="{{url_for('static', filename='images/umd.jpeg')}}" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -13,7 +13,7 @@
 	<!-- #header -->
 	<header class="container">
 		<div id="logo">
-			<a href="./" title="Home" rel="home"><img src="images/umd.jpeg" alt="Logo" /></a>
+			<a href="./" title="Home" rel="home"><img src="{{url_for('static', filename='images/umd.jpeg')}}" alt="Logo" /></a>
 		</div>
 		<div id="site-name">
 			UMCP Events
